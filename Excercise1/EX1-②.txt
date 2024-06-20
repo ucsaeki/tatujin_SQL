@@ -1,0 +1,148 @@
+EX1-② 合計と再掲を表頭に出力する行列変換
+
+SELECT
+	CASE
+		WHEN sex = 1 THEN '男'
+		ELSE '女'
+	END AS '性別',
+
+	CASE
+		WHEN sex = 1 THEN SUM(population)
+		ELSE SUM(population)
+	END AS '全国',
+	
+	CASE
+		WHEN sex = 1 THEN (
+							SELECT
+								population
+							FROM
+								poptbl2
+							WHERE
+								pref_name = '徳島'
+							AND
+								sex = 1
+							)
+		ELSE (
+			SELECT
+				population
+			FROM
+				poptbl2
+			WHERE
+				pref_name = '徳島'
+			AND
+				sex = 2
+			)
+	END AS '徳島',
+	
+	CASE
+		WHEN sex = 1 THEN (
+							SELECT
+								population
+							FROM
+								poptbl2
+							WHERE
+								pref_name = '香川'
+							AND
+								sex = 1
+							)
+		ELSE (
+			SELECT
+				population
+			FROM
+				poptbl2
+			WHERE
+				pref_name = '香川'
+			AND
+				sex = 2
+			)
+	END AS '香川',
+	
+	CASE
+		WHEN sex = 1 THEN (
+							SELECT
+								population
+							FROM
+								poptbl2
+							WHERE
+								pref_name = '愛媛'
+							AND
+								sex = 1
+							)
+		ELSE (
+			SELECT
+				population
+			FROM
+				poptbl2
+			WHERE
+				pref_name = '愛媛'
+			AND
+				sex = 2
+			)
+	END AS '愛媛',
+	
+	CASE
+		WHEN sex = 1 THEN (
+							SELECT
+								population
+							FROM
+								poptbl2
+							WHERE
+								pref_name = '高知'
+							AND
+								sex = 1
+							)
+		ELSE (
+			SELECT
+				population
+			FROM
+				poptbl2
+			WHERE
+				pref_name = '高知'
+			AND
+				sex = 2
+			)
+	END AS '高知',
+	
+	CASE
+		WHEN sex = 1 THEN (
+							SELECT
+								SUM( population )
+							FROM
+								poptbl2
+							WHERE
+								(
+									pref_name = '徳島'
+								OR
+									pref_name = '香川'
+								OR
+									pref_name = '愛媛'
+								OR
+									pref_name = '高知'
+								)
+							AND
+								sex = 1
+						)
+		ELSE (
+				SELECT
+					SUM( population )
+				FROM
+					poptbl2
+				WHERE
+					(
+						pref_name = '徳島'
+					OR
+						pref_name = '香川'
+					OR
+						pref_name = '愛媛'
+					OR
+						pref_name = '高知'
+					)
+				AND
+					sex = 2
+			)
+	END AS '四国（再掲）'
+FROM
+	PopTbl2
+GROUP BY
+	sex
+;

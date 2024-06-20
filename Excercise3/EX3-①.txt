@@ -1,0 +1,12 @@
+EX3-① 重複組み合わせ
+
+SELECT
+	P1.name AS name_1,
+	P2.name As name_2
+FROM
+	products P1
+INNER JOIN
+	products P2
+WHERE
+	P1.name >= P2.name
+;

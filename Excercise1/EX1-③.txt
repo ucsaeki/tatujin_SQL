@@ -1,0 +1,15 @@
+EX1-③ORDER BYでソートを作る
+
+SELECT
+	key_code
+FROM
+	greatests
+ORDER BY
+	CASE 
+		WHEN key_code = 'B' THEN 1
+		WHEN key_code = 'A' THEN 2
+		WHEN key_code = 'D' THEN 3
+		WHEN key_code = 'C' THEN 4
+		ELSE 0
+	END
+;

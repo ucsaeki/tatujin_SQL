@@ -1,0 +1,23 @@
+EX2-② ウィンドウ関数の結果予想 その2
+
+・serverに対するPARTITION BY句が追加されたことによって、SUM関数の対象がserverA,B,Cごとに分割される。フレーム句は定義されていないため、このテーブル全体が対象となる。ORDER BY句が定義されていないため、特別なソートは行われないが、ウィンドウ関数は内部的にソートを行うため、sum_lord、つまりはserverごとにソートが行われる。これにより、A、B、Cのそれぞれの負荷量の合計が算出され、該当するserverに応じて合計の値がsum_lordの順にソートされる。
+
+・予想できていなかったこと
+→ORDER BY句で指定せずともserverに関してソートが行われたというのは当たっていた。ただし、ソートが行われたのはserverであり、sum_lordではなかった。同様に、sample_dateに関してもソートは行われておらず、日付の順番はバラバラである。
+
+SELECT
+	server,
+	sample_date,
+	SUM(load_val) OVER (PARTITION BY server) AS sum_load
+FROM
+	ServerLoadSamples
+;
+
+
+SELECT
+	server,
+	sample_date,
+	SUM(load_val) OVER (PARTITION BY load_val) AS sum_load
+FROM
+	ServerLoadSamples
+;
