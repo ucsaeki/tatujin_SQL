@@ -1,0 +1,19 @@
+EX6-② 特性関数の練習
+
+/*2018年9月中に全員が課題を提出した学部を表示*/
+
+SELECT
+	dpt
+FROM
+	Students
+GROUP BY
+	dpt
+HAVING
+	COUNT(*) = SUM(
+		CASE
+			/*1は条件の合致を表すために使用*/
+			WHEN sbmt_date BETWEEN '2018-09-01' AND '2018-09-31' THEN 1
+			ELSE 0
+		END
+	)
+;

@@ -13,20 +13,20 @@ SELECT
 	
 	CASE
 		WHEN sex = 1 THEN (
-							SELECT
-								population
-							FROM
-								poptbl2
-							WHERE
-								pref_name = '徳島'
-							AND
-								sex = 1
-							)
+			SELECT
+				population
+			FROM
+				Pop_Tables
+			WHERE
+				pref_name = '徳島'
+			AND
+				sex = 1
+		)
 		ELSE (
 			SELECT
 				population
 			FROM
-				poptbl2
+				Pop_Tables
 			WHERE
 				pref_name = '徳島'
 			AND
@@ -36,20 +36,20 @@ SELECT
 	
 	CASE
 		WHEN sex = 1 THEN (
-							SELECT
-								population
-							FROM
-								poptbl2
-							WHERE
-								pref_name = '香川'
-							AND
-								sex = 1
-							)
+			SELECT
+				population
+			FROM
+				Pop_Tables
+			WHERE
+				pref_name = '香川'
+			AND
+				sex = 1
+		)
 		ELSE (
 			SELECT
 				population
 			FROM
-				poptbl2
+				Pop_Tables
 			WHERE
 				pref_name = '香川'
 			AND
@@ -59,20 +59,20 @@ SELECT
 	
 	CASE
 		WHEN sex = 1 THEN (
-							SELECT
-								population
-							FROM
-								poptbl2
-							WHERE
-								pref_name = '愛媛'
-							AND
-								sex = 1
-							)
+			SELECT
+				population
+			FROM
+				Pop_Tables
+			WHERE
+				pref_name = '愛媛'
+			AND
+				sex = 1
+		)
 		ELSE (
 			SELECT
 				population
 			FROM
-				poptbl2
+				Pop_Tables
 			WHERE
 				pref_name = '愛媛'
 			AND
@@ -82,20 +82,20 @@ SELECT
 	
 	CASE
 		WHEN sex = 1 THEN (
-							SELECT
-								population
-							FROM
-								poptbl2
-							WHERE
-								pref_name = '高知'
-							AND
-								sex = 1
-							)
+			SELECT
+				population
+			FROM
+				Pop_Tables
+			WHERE
+				pref_name = '高知'
+			AND
+				sex = 1
+		)
 		ELSE (
 			SELECT
 				population
 			FROM
-				poptbl2
+				Pop_Tables
 			WHERE
 				pref_name = '高知'
 			AND
@@ -105,30 +105,12 @@ SELECT
 	
 	CASE
 		WHEN sex = 1 THEN (
-							SELECT
-								SUM( population )
-							FROM
-								poptbl2
-							WHERE
-								(
-									pref_name = '徳島'
-								OR
-									pref_name = '香川'
-								OR
-									pref_name = '愛媛'
-								OR
-									pref_name = '高知'
-								)
-							AND
-								sex = 1
-						)
-		ELSE (
-				SELECT
-					SUM( population )
-				FROM
-					poptbl2
-				WHERE
-					(
+			SELECT
+				SUM( population )
+			FROM
+				Pop_Tables
+			WHERE
+				(
 						pref_name = '徳島'
 					OR
 						pref_name = '香川'
@@ -136,13 +118,31 @@ SELECT
 						pref_name = '愛媛'
 					OR
 						pref_name = '高知'
+				)
+			AND
+				sex = 1
+		)
+		ELSE (
+				SELECT
+					SUM( population )
+				FROM
+					Pop_Tables
+				WHERE
+					(
+							pref_name = '徳島'
+						OR
+							pref_name = '香川'
+						OR
+							pref_name = '愛媛'
+						OR
+							pref_name = '高知'
 					)
 				AND
 					sex = 2
 			)
 	END AS '四国（再掲）'
 FROM
-	PopTbl2
+	Pop_Tables
 GROUP BY
 	sex
 ;

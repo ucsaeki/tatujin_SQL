@@ -1,0 +1,12 @@
+EX6-① 歯抜けを探す――改良版
+
+/*テーブルの合計がテーブルの連番の合計と一致する場合歯抜けなし、一致しない場合歯抜けありを返却する*/
+
+SELECT
+	CASE 
+		WHEN COUNT(*) = MAX(Seq) THEN '歯抜けなし'
+		ELSE '歯抜けあり'
+	END AS gap
+FROM
+	Seq_Tables
+;

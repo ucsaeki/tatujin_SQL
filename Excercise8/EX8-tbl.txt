@@ -1,0 +1,382 @@
+EX8 テーブル作成
+
+〇Tbl_Agesテーブル作成
+
+/*Tbl_Agesテーブルを削除*/
+DROP TABLE IF EXISTS
+	Tbl_Ages
+;
+
+/*Tbl_Agesテーブルを作成*/
+CREATE TABLE
+	Tbl_Ages
+	(
+		age_class CHAR(1),
+		age_range VARCHAR(20),
+		PRIMARY KEY (age_class)
+	)
+;
+
+/*Tbl_Ageテーブルに値を挿入*/
+INSERT INTO
+	Tbl_Ages
+	(
+		age_class,
+		age_range
+	)
+VALUES
+	(
+		1,
+		'21～30歳'
+	),
+	(
+		2,
+		'31～40歳'
+	),
+	(
+		3,
+		'41～50歳'
+	)
+;
+
+〇作成したテーブル
++-----------+-----------+
+| age_class | age_range |
++-----------+-----------+
+| 1         | 21～30歳  |
+| 2         | 31～40歳  |
+| 3         | 41～50歳  |
++-----------+-----------+
+
+〇Tbl_Sexesテーブル作成
+
+/*Tbl_Sexesテーブルを削除*/
+DROP TABLE IF EXISTS
+	Tbl_Sexes
+;
+
+/*Tbl_Sexesテーブルを作成*/
+CREATE TABLE
+	Tbl_Sexes
+	(
+		sex_cd CHAR(1),
+		sex CHAR(1),
+		PRIMARY KEY (sex_cd)
+	)
+;
+
+/*Tbl_Sexesテーブルに値を挿入*/
+INSERT INTO
+	Tbl_Sexes
+	(
+		sex_cd,
+		sex
+	)
+VALUES
+	(
+		'm',
+		'男'
+	),
+	(
+		'f',
+		'女'
+	)
+;
+
+〇作成したテーブル
++--------+------+
+| sex_cd | sex  |
++--------+------+
+| f      | 女   |
+| m      | 男   |
++--------+------+
+
+
+〇Tbl_Popsテーブル作成
+
+/*テーブルを削除*/
+DROP TABLE IF EXISTS
+	Tbl_Pops
+;
+
+/*テーブルを作成*/
+CREATE TABLE
+	Tbl_Pops
+	(
+		pref_name VARCHAR(10),
+		age_class CHAR(1),
+		sex_cd CHAR(1),
+		population INT,
+		PRIMARY KEY (pref_name,age_class,sex_cd)
+	)
+;
+
+/*テーブルに値を挿入*/
+INSERT INTO
+	Tbl_Pops
+	(
+		pref_name,
+		age_class,
+		sex_cd,
+		population
+	)
+VALUES
+	(
+		'秋田',
+		1,
+		'm',
+		400
+	),
+	(
+		'秋田',
+		3,
+		'm',
+		1000
+	),
+	(
+		'秋田',
+		1,
+		'f',
+		800
+	),
+	(
+		'秋田',
+		3,
+		'f',
+		1000
+	),
+	(
+		'青森',
+		1,
+		'm',
+		700
+	),
+	(
+		'青森',
+		1,
+		'f',
+		500
+	),
+	(
+		'青森',
+		3,
+		'f',
+		800
+	),
+	(
+		'東京',
+		1,
+		'm',
+		900
+	),
+	(
+		'東京',
+		1,
+		'f',
+		1500
+	),
+	(
+		'東京',
+		3,
+		'f',
+		1200
+	),
+	(
+		'千葉',
+		1,
+		'm',
+		900
+	),
+	(
+		'千葉',
+		1,
+		'f',
+		1000
+	),
+	(
+		'千葉',
+		3,
+		'f',
+		900
+	)
+;
+
+〇作成したテーブル
++-----------+-----------+--------+------------+
+| pref_name | age_class | sex_cd | population |
++-----------+-----------+--------+------------+
+| 千葉      | 1         | f      |       1000 |
+| 千葉      | 1         | m      |        900 |
+| 千葉      | 3         | f      |        900 |
+| 東京      | 1         | f      |       1500 |
+| 東京      | 1         | m      |        900 |
+| 東京      | 3         | f      |       1200 |
+| 秋田      | 1         | f      |        800 |
+| 秋田      | 1         | m      |        400 |
+| 秋田      | 3         | f      |       1000 |
+| 秋田      | 3         | m      |       1000 |
+| 青森      | 1         | f      |        500 |
+| 青森      | 1         | m      |        700 |
+| 青森      | 3         | f      |        800 |
++-----------+-----------+--------+------------+
+
+〇Personnelsテーブル作成
+
+/*Personnelsテーブルを削除*/
+DROP TABLE IF EXISTS
+	Personnels
+;
+
+/*Personnelsテーブルを作成*/
+CREATE TABLE
+	Personnels
+	(
+		employee VARCHAR(20),
+		child_1 VARCHAR(20) NULL,
+		child_2 VARCHAR(20) NULL,
+		child_3 VARCHAR(20) NULL,
+		PRIMARY KEY (employee)
+	)
+;
+
+/*Personnelsテーブルに値を挿入*/
+INSERT INTO
+	Personnels
+	(
+		employee,
+		child_1,
+		child_2,
+		child_3
+	)
+VALUES
+	(
+		'赤井',
+		'一郎',
+		'二郎',
+		'三郎'
+	),
+	(
+		'工藤',
+		'春子',
+		'夏子',
+		NULL
+	),
+	(
+		'鈴木',
+		'夏子',
+		NULL,
+		NULL
+	),
+	(
+		'吉田',
+		NULL,
+		NULL,
+		NULL
+	)
+;
+
+〇作成したテーブル
++----------+---------+---------+---------+
+| employee | child_1 | child_2 | child_3 |
++----------+---------+---------+---------+
+| 吉田     | NULL    | NULL    | NULL    |
+| 工藤     | 春子    | 夏子    | NULL    |
+| 赤井     | 一郎    | 二郎    | 三郎    |
+| 鈴木     | 夏子    | NULL    | NULL    |
++----------+---------+---------+---------+
+
+〇Classes_Aテーブル作成
+
+/*Classes_Aテーブルを削除*/
+DROP TABLE IF EXISTS
+	Classes_A
+;
+
+/*Class_Aテーブルを作成*/
+CREATE TABLE
+	Classes_A
+	(
+		id INT,
+		name VARCHAR(20),
+		PRIMARY KEY (id)
+	)
+;
+
+/*Classes_Aテーブルに値を挿入*/
+INSERT INTO
+	Classes_A
+	(
+		id,
+		name
+	)
+VALUES
+	(
+		1,
+		'田中'
+	),
+	(
+		2,
+		'鈴木'
+	),
+	(	3,
+		'伊集院'
+	)
+;
+
+〇作成したテーブル
++----+--------+
+| id | name   |
++----+--------+
+|  1 | 田中   |
+|  2 | 鈴木   |
+|  3 | 伊集院 |
++----+--------+
+
+
+〇テーブル作成
+
+/*Classes_Bテーブルを削除*/
+DROP TABLE IF EXISTS
+	Classes_B
+;
+
+/*Classes_Bテーブルを作成*/
+CREATE TABLE
+	Classes_B
+	(
+		id INT,
+		name VARCHAR(20),
+		PRIMARY KEY (id)
+	)
+;
+
+/*Classes_Bテーブルに値を挿入*/
+INSERT INTO
+	Classes_B
+	(
+		id,
+		name
+	)
+VALUES
+	(
+		1,
+		'田中'
+	),
+	(
+		2,
+		'内海'
+	),
+	(
+		4,
+		'西園寺'
+	)
+;
+
+〇作成したテーブル
++----+--------+
+| id | name   |
++----+--------+
+|  1 | 田中   |
+|  2 | 内海   |
+|  4 | 西園寺 |
++----+--------+

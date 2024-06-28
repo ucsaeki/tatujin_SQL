@@ -1,0 +1,34 @@
+EX9-② 厳密な関係除算
+
+
+/*スキルの内容と個数を過不足なく見たしている人を表示する*/
+
+SELECT DISTINCT
+	emp
+FROM
+	Emp_skills AS ES1
+WHERE NOT EXISTS
+	(
+		SELECT
+			skill
+		FROM
+			skills AS s
+	EXCEPT
+		SELECT
+			Skill
+		FROM
+			Emp_skills AS ES2
+		WHERE
+			ES1.emp = ES2.emp
+	)
+GROUP BY
+	emp
+HAVING
+	COUNT(ES1.skill) = 
+	(
+		SELECT
+			COUNT(*)
+		FROM
+			skills
+	)
+;

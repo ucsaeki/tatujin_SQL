@@ -1,0 +1,27 @@
+EX4-① オーダーバイ句によるソート結果でのNULL
+
+※例としてP.67、Studentsテーブルを使用
+
+
+SELECT
+	*
+FROM
+	students
+ORDER BY
+	age ASC
+;
+
+→昇順ソートにおいて、NULLは最も上に設置されている。
+
+
+・降順ソート
+SELECT
+	*
+FROM
+	students
+ORDER BY
+	age DESC
+;
+
+→降順ソートにおいて、NULLは最も下に置かれている。
+→よって、mySQLにおいて最も小さいものとして扱われている。

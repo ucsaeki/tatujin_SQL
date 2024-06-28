@@ -1,0 +1,20 @@
+EX7-② 移動平均その2
+
+SELECT
+	prc_date,
+	prc_amt,
+	ROUND(
+		(
+			CASE
+				WHEN COUNT(prc_date)OVER(ORDER BY prc_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) = 3 
+					THEN AVG(prc_amt)OVER(ORDER BY prc_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
+				ELSE NULL
+			END
+		
+		)
+	,0 )  AS 'AVG(prc_amt)'
+FROM
+	Accounts
+GROUP BY
+	prc_date
+;

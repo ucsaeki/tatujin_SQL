@@ -1,0 +1,10 @@
+EX4-② NULLと文字列の連結
+
+
+UPDATE
+	students
+SET
+	age = CONCAT(age , '歳')
+;
+
+→NULLに文字列を連結することはできなかった。

@@ -1,0 +1,38 @@
+EX3-② ウィンドウ関数で重複削除
+
+
+/*重複のあるテーブルに一意な番号を付与*/
+
+ALTER TABLE
+	products2
+ADD
+	row_number INT AUTO_INCREMENT PRIMARY KEY
+;
+
+
+/*nameでソートした際に一意な番号の最大値とならないレコードを削除*/
+
+DELETE FROM
+	products2
+WHERE
+	row_number NOT IN
+		(
+			SELECT
+				MAX(row_number)
+			FROM
+				products2
+			Group BY
+				name,
+				price
+		)
+;
+
+
+/*重複を取り除いたテーブルから計算のために付与した一意な番号を取り除く。*/
+
+ALTER TABLE
+	products2
+DROP
+	row_number
+;
+

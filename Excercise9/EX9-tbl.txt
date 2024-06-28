@@ -1,0 +1,262 @@
+EX9 テーブル作成
+
+
+/*Tables_Aテーブルを削除*/
+DROP TABLE IF EXISTS
+	Tables_A
+;
+
+/*Tables_Aテーブルを作成*/
+CREATE TABLE
+	Tables_A
+	(
+		key_code CHAR(1),
+		col_1 INT,
+		col_2 INT,
+		col_3 INT,
+		PRIMARY KEY (key_code)
+	)
+;
+
+/*Tables_Aテーブルに値を挿入*/
+INSERT INTO
+	Tables_A
+	(
+		key_code,
+		col_1,
+		col_2,
+		col_3
+	)
+VALUES
+	(
+		'A',
+		2,
+		3,
+		4
+	),
+		(
+		'B',
+		0,
+		7,
+		9
+	),
+		(
+		'C',
+		5,
+		1,
+		6
+	)
+;
+
+
+〇作成したテーブル
++----------+-------+-------+-------+
+| key_code | col_1 | col_2 | col_3 |
++----------+-------+-------+-------+
+| A        |     2 |     3 |     4 |
+| B        |     0 |     7 |     9 |
+| C        |     5 |     1 |     6 |
++----------+-------+-------+-------+
+
+
+/*Tables_Bテーブルを削除*/
+DROP TABLE IF EXISTS
+	Tables_B
+;
+
+/*Tables_Bテーブルを作成*/
+CREATE TABLE
+	Tables_B
+	(
+		key_code CHAR(1),
+		col_1 INT,
+		col_2 INT,
+		col_3 INT,
+		PRIMARY KEY (key_code)
+	)
+;
+
+/*Tables_Bテーブルに値を挿入*/
+INSERT INTO
+	Tables_B
+	(
+		key_code,
+		col_1,
+		col_2,
+		col_3
+	)
+VALUES
+	(
+		'A',
+		2,
+		3,
+		4
+	),
+		(
+		'B',
+		0,
+		7,
+		9
+	),
+		(
+		'C',
+		5,
+		1,
+		6
+	)
+;
+
+
+〇作成したテーブル
++----------+-------+-------+-------+
+| key_code | col_1 | col_2 | col_3 |
++----------+-------+-------+-------+
+| A        |     2 |     3 |     4 |
+| B        |     0 |     7 |     9 |
+| C        |     5 |     1 |     6 |
++----------+-------+-------+-------+
+
+〇skillsテーブル作成
+
+/*skillsテーブルを削除*/
+DROP TABLE IF EXISTS
+	skills
+;
+
+/*skillsテーブルを作成*/
+CREATE TABLE
+	skills
+	(
+		skill VARCHAR(20) PRIMARY KEY
+	)
+;
+
+/*skillsテーブルに値を挿入*/
+INSERT INTO
+	skills
+	(
+		skill
+	)
+VALUES
+	(
+		'Oracle'
+	),
+	(
+		'UNIX'
+	),
+	(
+		'Java'
+	)
+;
+
+〇作成したテーブル
++--------+
+| skill  |
++--------+
+| Java   |
+| Oracle |
+| UNIX   |
++--------+
+
+〇Emp_skillsテーブル作成
+
+/*Emp_skillsテーブルを削除*/
+DROP TABLE IF EXISTS
+	Emp_skills
+;
+
+/*Emp_skillsテーブルを作成*/
+CREATE TABLE
+	Emp_skills
+	(
+		emp VARCHAR(20),
+		skill VARCHAR(20),
+		PRIMARY KEY (emp, skill)
+	)
+;
+
+/*Emp_skillsテーブルに値を挿入*/
+INSERT INTO
+	Emp_skills
+	(
+		emp,
+		skill
+	)
+VALUES
+	(
+		'相田',
+		'Oracle'
+	),
+	(
+		'相田',
+		'UNIX'
+	),
+	(
+		'相田',
+		'Java'
+	),
+	(
+		'相田',
+		'C#'
+	),
+	(
+		'神崎',
+		'Oracle'
+	),
+	(
+		'神崎',
+		'UNIX'
+	),
+	(
+		'神崎',
+		'Java'
+	),
+	(
+		'平井',
+		'UNIX'
+	),
+	(
+		'平井',
+		'Oracle'
+	),
+	(
+		'平井',
+		'PHP'
+	),
+	(
+		'平井',
+		'Perl'
+	),
+	(
+		'平井',
+		'C++'
+	),
+	(
+		'若田部',
+		'Perl'
+	),
+	(
+		'渡来',
+		'Oracle'
+	)
+;
+
+〇作成したテーブル
++--------+--------+
+| emp    | skill  |
++--------+--------+
+| 平井   | C++    |
+| 平井   | Oracle |
+| 平井   | Perl   |
+| 平井   | PHP    |
+| 平井   | UNIX   |
+| 渡来   | Oracle |
+| 相田   | C#     |
+| 相田   | Java   |
+| 相田   | Oracle |
+| 相田   | UNIX   |
+| 神崎   | Java   |
+| 神崎   | Oracle |
+| 神崎   | UNIX   |
+| 若田部 | Perl   |
++--------+--------+

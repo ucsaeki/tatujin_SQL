@@ -1,0 +1,23 @@
+EX4-③ COALESCE関数
+
+
+〇COALESCE関数
+→関数を使用したカラムにNULLが含まれていた場合、それを指定した値に変換することができる関数。
+
+SELECT
+	name,
+	COALESCE(age,'年齢不詳')
+FROM
+	students
+;
+
+
+〇NULLIF関数
+→二つの引数が等しければNULLを、そうでなければ一つ目の引数を返却する。つまり、二つ目の引数と同じ値の一つ目の列の値をNULLで表示する
+
+SELECT
+	NULLIF(name,'ジョン'),
+	age
+FROM
+	students
+;

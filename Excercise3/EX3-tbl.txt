@@ -1,0 +1,106 @@
+EX3 テーブル作成
+
+〇Productsテーブル作成
+
+/*Productsテーブルを削除*/
+DROP TABLE IF EXISTS
+	Products
+;
+
+/*テーブルを作成*/
+CREATE TABLE
+	Products
+	(
+		name VARCHAR(20),
+		price INT,
+		PRIMARY KEY (name)
+	)
+;
+
+/*Productsテーブルに値を挿入*/
+INSERT INTO
+	Products
+	(
+		name,
+		price
+	)
+VALUES
+	(
+		'りんご',
+		50
+	),
+	(
+		'みかん',
+		100
+	),
+	(
+		'バナナ',
+		80
+	)
+;
+
+〇作成したテーブル
++--------+-------+
+| name   | price |
++--------+-------+
+| バナナ |    80 |
+| みかん |   100 |
+| りんご |    50 |
++--------+-------+
+
+〇Products2テーブル作成
+
+/*テーブルを削除*/
+DROP TABLE IF EXISTS
+	Products2
+;
+
+/*テーブルを作成*/
+CREATE TABLE
+	Products2
+	(
+		name VARCHAR(20),
+		price INT
+	)
+;
+
+/*テーブルに値を挿入*/
+INSERT INTO
+	Products2
+	(
+		name,
+		price
+	)
+VALUES
+	(
+		'りんご',
+		50
+	),
+	(
+		'みかん',
+		100
+	),
+	(
+		'みかん',
+		100
+	),
+	(
+		'みかん',
+		100
+	),
+	(
+		'バナナ',
+		80
+	)
+;
+
+〇作成したテーブル
++--------+-------+
+| name   | price |
++--------+-------+
+| りんご |    50 |
+| みかん |   100 |
+| みかん |   100 |
+| みかん |   100 |
+| バナナ |    80 |
++--------+-------+

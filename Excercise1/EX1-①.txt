@@ -8,9 +8,9 @@ SELECT
 	CASE 
 		WHEN x > y THEN x
 		ELSE y
-	END AS 'greatests'
+	END AS 'greatest'
 FROM
-	greatests
+	Greatests
 ;
 
 
@@ -41,7 +41,7 @@ SELECT
 				ELSE z
 			END
 		)
-	END AS 'greatests'
+	END AS 'greatest'
 FROM
-	greatests
+	Greatests
 ;

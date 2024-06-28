@@ -1,0 +1,22 @@
+EX6-③ 関係除算の改良
+
+/*店舗ごとの指定された商品の在庫数と、不足している個数を表示*/
+
+SELECT
+	s.shop,
+	COUNT(s.item) AS my_item_cnt,
+	(
+		SELECT
+			COUNT(item)
+		FROM
+			Items
+	) - COUNT(s.item) AS diff_cnt
+FROM
+	Shop_Items AS s
+INNER JOIN
+	Items AS i
+ON
+	s.item = i.item
+GROUP BY
+	s.shop
+;

@@ -1,0 +1,40 @@
+EX5-③ 素数を求める
+
+/*digitテーブルを用いて0～99までの連番を持つSequenceビューを作成*/
+CREATE VIEW
+	Sequence AS
+		SELECT
+			D1.digit + (D2.digit * 10) AS serial_number
+		FROM
+			Digits AS D1
+		CROSS JOIN
+			Digits AS D2
+;
+
+
+/*1～100の間の素数を表示する*/
+
+SELECT
+	serial_number
+FROM
+	numbers AS N1
+WHERE 
+	/*1は素数ではない1を除くために使用*/
+	N1.serial_number > 1
+AND NOT EXISTS
+	(
+		SELECT
+			*
+		FROM
+			numbers AS N2
+		WHERE
+			/*2は素数の判定に使用する最大の約数の作成に使用*/
+			N2.serial_number <= N1.serial_number / 2
+		AND
+			/*1は素数の判定として割る数が1以外の場合を指定*/
+			N2.serial_number <> 1
+		AND
+			/*0は割り切れるか同課の判定に使用*/
+			N1.serial_number % N2.serial_number = 0
+	)
+;

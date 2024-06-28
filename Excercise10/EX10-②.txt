@@ -1,0 +1,71 @@
+EX10-② シーケンスを求める
+
+
+
+/*パラメータに空席の連続する数を設定*/
+
+SET
+	/*3は連続した座席の数を表す*/
+	@head_cnt = 3
+;
+
+
+〇行に折り返しが無い場合
+
+/*指定した数だけ空席が連続する座席を表示する*/
+
+SELECT
+	S1.seat AS start_seat,
+	'～',
+	S2.seat AS end_seat
+FROM
+	Seats AS S1,
+	Seats AS S2,
+	Seats AS S3
+WHERE
+	/*1は空席の連続数を表すパラメータの誤差を修正するために使用*/
+	S2.seat = S1.seat + (@head_cnt - 1)
+AND
+	S3.seat BETWEEN S1.seat AND S2.seat
+GROUP BY
+	S1.seat
+HAVING
+	COUNT(S1.seat) = SUM(
+		CASE
+			/*1は条件に合致した場合を表すために使用*/
+			WHEN S3.status = '空' THEN 1
+			ELSE 0
+		END
+	)
+;
+
+
+〇行に折り返しがある場合
+
+/*列ごとに、指定した数だけ空席が連続する座席を表示する*/
+
+SELECT
+	S1.seat AS start_seat,
+	'～',
+	S2.seat AS end_seat
+FROM
+	Seats2 AS S1,
+	Seats2 AS S2,
+	Seats2 AS S3
+WHERE
+	/*1は空席の連続数を表すパラメータの誤差を修正するために使用*/
+	S2.seat = S1.seat + (@head_cnt - 1)
+AND
+	S3.seat BETWEEN S1.seat AND S2.seat
+GROUP BY
+	S1.seat
+HAVING
+	COUNT(*) = SUM(
+		CASE
+			/*1は条件に合致した場合を表すために使用*/
+			WHEN S3.status = '空' AND S3.line_id = S1.line_id THEN 1
+			ELSE 0
+		END
+	)
+;
+

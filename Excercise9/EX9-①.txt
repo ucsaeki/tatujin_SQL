@@ -1,0 +1,32 @@
+EX9-① UNIONだけを使うコンペアの改良
+
+
+/*二つのテーブルの相当性を比較する*/
+
+SELECT
+	(
+		SELECT
+			COUNT(*)
+		FROM
+			Tables_A
+	) AS 'COUNT(Tables_A)',
+	(
+		SELECT
+			COUNT(*)
+		FROM
+			Tables_B
+	) AS 'COUNT(Tables_B)',
+	COUNT(*) AS row_cnt
+FROM
+	(
+		SELECT
+			*
+		FROM
+			Tables_A
+	UNION
+		SELECT
+			*
+		FROM
+			Tables_B
+	) AS TMP
+;

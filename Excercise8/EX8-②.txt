@@ -1,0 +1,39 @@
+EX8-② 子供の数にご用心
+
+/*子供の一覧を保持するビューを作成*/
+
+CREATE VIEW
+	Children(child)
+AS
+	SELECT
+		child_1
+	FROM
+		Personnels
+	UNION
+	SELECT
+		child_2
+	FROM
+		Personnels
+	UNION
+	SELECT
+		child_3
+	FROM
+		Personnels
+;
+
+/*社員ごとの子供の人数を表示*/
+
+SELECT
+	EMP.employee,
+	COUNT(Children.child)
+FROM
+	Personnels EMP
+LEFT OUTER JOIN
+	Children
+ON
+	Children.child IN (EMP.child_1, EMP.child_2, EMP.child_3)
+GROUP BY
+	employee
+ORDER BY
+	COUNT(Children.child) DESC
+;

@@ -12,12 +12,3 @@ SELECT
 FROM
 	ServerLoadSamples
 ;
-
-
-SELECT
-	server,
-	sample_date,
-	SUM(load_val) OVER (PARTITION BY load_val) AS sum_load
-FROM
-	ServerLoadSamples
-;

@@ -1,0 +1,34 @@
+EX7-① 移動平均
+
+
+/*指定した日から2日前までの金額の増減の平均値を表示する*/
+
+SELECT
+	A1.prc_date,
+	A1.prc_amt,
+	ROUND(
+		(
+		SELECT
+			AVG(prc_amt)
+		FROM
+			Accounts AS A2
+		WHERE
+			A1.prc_date >= A2.prc_date
+		AND
+			(
+				SELECT
+					COUNT(*)
+				FROM
+					Accounts AS A3
+				WHERE
+					A3.prc_date >= A2.prc_date
+				AND
+					A1.prc_date >= A3.prc_date
+			) <= 3
+		)
+	,0 ) AS 'AVG(prc_amt)'
+FROM
+	Accounts AS A1
+GROUP BY
+	A1.prc_date
+;

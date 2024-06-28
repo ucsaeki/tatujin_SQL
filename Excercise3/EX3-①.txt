@@ -7,6 +7,6 @@ FROM
 	products P1
 INNER JOIN
 	products P2
-WHERE
+ON
 	P1.name >= P2.name
 ;

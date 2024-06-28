@@ -1,0 +1,54 @@
+EX4 テーブル作成
+
+〇Studentsテーブル作成
+
+/*Studentsテーブルを削除*/
+DROP TABLE IF EXISTS
+	Students
+;
+
+/*Studentsテーブルを作成*/
+CREATE TABLE
+	Students
+	(
+		name VARCHAR(20),
+		age VARCHAR(10) NULL,
+		PRIMARY KEY (name)
+	)
+;
+
+/*Studentsテーブルに値を挿入*/
+INSERT INTO
+	Students
+	(
+		name,
+		age
+	)
+VALUES
+	(
+		'ブラウン',
+		22
+	),
+	(
+		'ラリー',
+		19
+	),
+	(
+		'ジョン',
+		NULL
+	),
+	(
+		'ボギー',
+		21
+	)
+;
+
+〇作成したテーブル
++----------+------+
+| name     | age  |
++----------+------+
+| ジョン   | NULL |
+| ブラウン |   22 |
+| ボギー   |   21 |
+| ラリー   |   19 |
++----------+------+
