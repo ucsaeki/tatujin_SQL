@@ -11,7 +11,7 @@ SELECT
 		SELECT
 			AVG(prc_amt)
 		FROM
-			Accounts AS A2
+			accounts AS A2
 		WHERE
 			A1.prc_date >= A2.prc_date
 		AND
@@ -19,7 +19,7 @@ SELECT
 				SELECT
 					COUNT(*)
 				FROM
-					Accounts AS A3
+					accounts AS A3
 				WHERE
 					A3.prc_date >= A2.prc_date
 				AND
@@ -28,7 +28,7 @@ SELECT
 		)
 	,0 ) AS 'AVG(prc_amt)'
 FROM
-	Accounts AS A1
+	accounts AS A1
 GROUP BY
 	A1.prc_date
 ;

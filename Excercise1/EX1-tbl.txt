@@ -1,32 +1,32 @@
 EX1 テーブル作成
 
-〇Greatestsテーブル作成
+〇greatestsテーブル作成
 
-/*Greatestsテーブルを削除*/
+/*greatestsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Greatests
+	greatests
 ;
 
-/*Greatestsテーブルを作成*/
+/*greatestsテーブルを作成*/
 CREATE TABLE
-	Greatests
+	greatests
 	(
 		key_code CHAR(1),
-		x INT,
-		y INT,
-		z INT,
+		x_number INT,
+		y_number INT,
+		z_number INT,
 		PRIMARY KEY (key_code)
 	)
 ;
 
-/*Greatestsテーブルに値を挿入*/
+/*greatestsテーブルに値を挿入*/
 INSERT INTO
-	Greatests
+	greatests
 	(
 		key_code,
-		x,
-		y,
-		z
+		x_number,
+		y_number,
+		z_number
 	)
 VALUES
 	(
@@ -55,36 +55,36 @@ VALUES
 ;
 
 〇作成したテーブル
-+----------+------+------+------+
-| key_code | x    | y    | z    |
-+----------+------+------+------+
-| A        |    1 |    2 |    3 |
-| B        |    5 |    5 |    2 |
-| C        |    4 |    7 |    1 |
-| D        |    3 |    3 |    8 |
-+----------+------+------+------+
++----------+----------+----------+----------+
+| key_code | x_number | y_number | z_number |
++----------+----------+----------+----------+
+| A        |        1 |        2 |        3 |
+| B        |        5 |        5 |        2 |
+| C        |        4 |        7 |        1 |
+| D        |        3 |        3 |        8 |
++----------+----------+----------+----------+
 
-〇Pop_Tablesテーブル作成
+〇population_tablesテーブル作成
 
-/*Pop_Tablesテーブルを削除*/
+/*population_tablesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Pop_Tables
+	population_tables
 ;
-/*Pop_Tablesテーブルを作成*/
+/*population_tablesテーブルを作成*/
 CREATE TABLE
-	Pop_Tables
+	population_tables
 	(
-		pref_name VARCHAR(10),
+		prefecture_name VARCHAR(10),
 		sex CHAR(1),
 		population VARCHAR(10),
-		PRIMARY KEY (pref_name,sex)
+		PRIMARY KEY (prefecture_name,sex)
 	)
 ;
-/*Pop_Tablesテーブルに値を挿入*/
+/*population_tablesテーブルに値を挿入*/
 INSERT INTO
-	Pop_Tables
+	population_tables
 	(
-		pref_name,
+		prefecture_name,
 		sex,
 		population
 	)
@@ -157,23 +157,23 @@ VALUES
 ;
 
 〇作成したテーブル
-+-----------+-----+------------+
-| pref_name | sex | population |
-+-----------+-----+------------+
-| 佐賀      | 1   | 20         |
-| 佐賀      | 2   | 80         |
-| 徳島      | 1   | 60         |
-| 徳島      | 2   | 40         |
-| 愛媛      | 1   | 100        |
-| 愛媛      | 2   | 50         |
-| 東京      | 1   | 250        |
-| 東京      | 2   | 150        |
-| 福岡      | 1   | 100        |
-| 福岡      | 2   | 200        |
-| 長崎      | 1   | 125        |
-| 長崎      | 2   | 125        |
-| 香川      | 1   | 100        |
-| 香川      | 2   | 100        |
-| 高知      | 1   | 100        |
-| 高知      | 2   | 100        |
-+-----------+-----+------------+
++-----------------+-----+------------+
+| prefecture_name | sex | population |
++-----------------+-----+------------+
+| 佐賀            | 1   | 20         |
+| 佐賀            | 2   | 80         |
+| 徳島            | 1   | 60         |
+| 徳島            | 2   | 40         |
+| 愛媛            | 1   | 100        |
+| 愛媛            | 2   | 50         |
+| 東京            | 1   | 250        |
+| 東京            | 2   | 150        |
+| 福岡            | 1   | 100        |
+| 福岡            | 2   | 200        |
+| 長崎            | 1   | 125        |
+| 長崎            | 2   | 125        |
+| 香川            | 1   | 100        |
+| 香川            | 2   | 100        |
+| 高知            | 1   | 100        |
+| 高知            | 2   | 100        |
++-----------------+-----+------------+

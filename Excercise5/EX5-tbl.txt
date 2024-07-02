@@ -1,15 +1,15 @@
 EX5 テーブル作成
 
-〇Array_Tables2テーブル作成
+〇arraysテーブル作成
 
-/*Array_Tables2テーブルを削除*/
+/*arraysテーブルを削除*/
 DROP TABLE IF EXISTS
-	Array_Tables2
+	arrays
 ;
 
-/*Array_Tables2テーブルを作成*/
+/*arraysテーブルを作成*/
 CREATE TABLE
-	Array_Tables2
+	arrays
 	(
 		key_code CHAR(1),
 		i INT,
@@ -18,9 +18,9 @@ CREATE TABLE
 	)
 ;
 
-/*Array_Tables2テーブルに値を挿入*/
+/*arraysテーブルに値を挿入*/
 INSERT INTO
-	Array_Tables2
+	arrays
 	(
 		key_code,
 		i,
@@ -216,16 +216,16 @@ VALUES
 +----------+----+------+
 
 
-〇Projectsテーブル作成
+〇projectsテーブル作成
 
-/*Projectsテーブルを削除*/
+/*projectsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Projects
+	projects
 ;
 
-/*テーブルを作成*/
+/*projectsテーブルを作成*/
 CREATE TABLE
-	Projects
+	projects
 	(
 		project_id VARCHAR(10),
 		step_nbr INT,
@@ -234,9 +234,9 @@ CREATE TABLE
 	)
 ;
 
-/*テーブルに値を挿入*/
+/*projectsテーブルに値を挿入*/
 INSERT INTO
-	Projects
+	projects
 	(
 		project_id,
 		step_nbr,
@@ -324,24 +324,24 @@ VALUES
 +------------+----------+--------+
 
 
-〇Digitsテーブル作成
+〇digitsテーブル作成
 
-/*Digitsテーブルを削除*/
+/*digitsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Digits
+	digits
 ;
 
-/*Digitsテーブルを作成*/
+/*digitsテーブルを作成*/
 CREATE TABLE
-	Digits
+	digits
 	(
 		digit INT PRIMARY KEY
 	)
 ;
 
-/*Digitsテーブルに値を挿入*/
+/*digitsテーブルに値を挿入*/
 INSERT INTO
-	Digits
+	digits
 	(
 		digit
 	)

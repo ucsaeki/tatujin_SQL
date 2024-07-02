@@ -1,14 +1,14 @@
 EX9 テーブル作成
 
 
-/*Tables_Aテーブルを削除*/
+/*a_codesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Tables_A
+	a_codes
 ;
 
-/*Tables_Aテーブルを作成*/
+/*a_codesテーブルを作成*/
 CREATE TABLE
-	Tables_A
+	a_codes
 	(
 		key_code CHAR(1),
 		col_1 INT,
@@ -18,9 +18,9 @@ CREATE TABLE
 	)
 ;
 
-/*Tables_Aテーブルに値を挿入*/
+/*a_codesテーブルに値を挿入*/
 INSERT INTO
-	Tables_A
+	a_codes
 	(
 		key_code,
 		col_1,
@@ -59,14 +59,14 @@ VALUES
 +----------+-------+-------+-------+
 
 
-/*Tables_Bテーブルを削除*/
+/*b_codesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Tables_B
+	b_codes
 ;
 
-/*Tables_Bテーブルを作成*/
+/*b_codesテーブルを作成*/
 CREATE TABLE
-	Tables_B
+	b_codes
 	(
 		key_code CHAR(1),
 		col_1 INT,
@@ -76,9 +76,9 @@ CREATE TABLE
 	)
 ;
 
-/*Tables_Bテーブルに値を挿入*/
+/*b_codesテーブルに値を挿入*/
 INSERT INTO
-	Tables_B
+	b_codes
 	(
 		key_code,
 		col_1,

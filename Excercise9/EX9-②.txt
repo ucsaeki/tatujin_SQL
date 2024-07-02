@@ -15,7 +15,7 @@ WHERE NOT EXISTS
 			skills AS s
 	EXCEPT
 		SELECT
-			Skill
+			skill
 		FROM
 			Emp_skills AS ES2
 		WHERE

@@ -1,15 +1,15 @@
 EX8 テーブル作成
 
-〇Tbl_Agesテーブル作成
+〇agesテーブル作成
 
-/*Tbl_Agesテーブルを削除*/
+/*agesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Tbl_Ages
+	ages
 ;
 
-/*Tbl_Agesテーブルを作成*/
+/*agesテーブルを作成*/
 CREATE TABLE
-	Tbl_Ages
+	ages
 	(
 		age_class CHAR(1),
 		age_range VARCHAR(20),
@@ -17,9 +17,9 @@ CREATE TABLE
 	)
 ;
 
-/*Tbl_Ageテーブルに値を挿入*/
+/*agesテーブルに値を挿入*/
 INSERT INTO
-	Tbl_Ages
+	ages
 	(
 		age_class,
 		age_range
@@ -48,16 +48,16 @@ VALUES
 | 3         | 41～50歳  |
 +-----------+-----------+
 
-〇Tbl_Sexesテーブル作成
+〇tbl_sexesテーブル作成
 
-/*Tbl_Sexesテーブルを削除*/
+/*tbl_sexesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Tbl_Sexes
+	tbl_sexes
 ;
 
-/*Tbl_Sexesテーブルを作成*/
+/*tbl_sexesテーブルを作成*/
 CREATE TABLE
-	Tbl_Sexes
+	tbl_sexes
 	(
 		sex_cd CHAR(1),
 		sex CHAR(1),
@@ -65,9 +65,9 @@ CREATE TABLE
 	)
 ;
 
-/*Tbl_Sexesテーブルに値を挿入*/
+/*tbl_sexesテーブルに値を挿入*/
 INSERT INTO
-	Tbl_Sexes
+	tbl_sexes
 	(
 		sex_cd,
 		sex
@@ -92,16 +92,16 @@ VALUES
 +--------+------+
 
 
-〇Tbl_Popsテーブル作成
+〇tbl_popsテーブル作成
 
 /*テーブルを削除*/
 DROP TABLE IF EXISTS
-	Tbl_Pops
+	tbl_pops
 ;
 
 /*テーブルを作成*/
 CREATE TABLE
-	Tbl_Pops
+	tbl_pops
 	(
 		pref_name VARCHAR(10),
 		age_class CHAR(1),
@@ -113,7 +113,7 @@ CREATE TABLE
 
 /*テーブルに値を挿入*/
 INSERT INTO
-	Tbl_Pops
+	tbl_pops
 	(
 		pref_name,
 		age_class,
@@ -220,16 +220,16 @@ VALUES
 | 青森      | 3         | f      |        800 |
 +-----------+-----------+--------+------------+
 
-〇Personnelsテーブル作成
+〇personnelsテーブル作成
 
-/*Personnelsテーブルを削除*/
+/*personnelsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Personnels
+	personnels
 ;
 
-/*Personnelsテーブルを作成*/
+/*personnelsテーブルを作成*/
 CREATE TABLE
-	Personnels
+	personnels
 	(
 		employee VARCHAR(20),
 		child_1 VARCHAR(20) NULL,
@@ -239,9 +239,9 @@ CREATE TABLE
 	)
 ;
 
-/*Personnelsテーブルに値を挿入*/
+/*personnelsテーブルに値を挿入*/
 INSERT INTO
-	Personnels
+	personnels
 	(
 		employee,
 		child_1,
@@ -285,16 +285,16 @@ VALUES
 | 鈴木     | 夏子    | NULL    | NULL    |
 +----------+---------+---------+---------+
 
-〇Classes_Aテーブル作成
+〇a_classesテーブル作成
 
-/*Classes_Aテーブルを削除*/
+/*a_classesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Classes_A
+	a_classes
 ;
 
-/*Class_Aテーブルを作成*/
+/*a_classesテーブルを作成*/
 CREATE TABLE
-	Classes_A
+	a_classes
 	(
 		id INT,
 		name VARCHAR(20),
@@ -302,9 +302,9 @@ CREATE TABLE
 	)
 ;
 
-/*Classes_Aテーブルに値を挿入*/
+/*a_classesテーブルに値を挿入*/
 INSERT INTO
-	Classes_A
+	a_classes
 	(
 		id,
 		name
@@ -335,14 +335,14 @@ VALUES
 
 〇テーブル作成
 
-/*Classes_Bテーブルを削除*/
+/*b_classesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Classes_B
+	b_classes
 ;
 
-/*Classes_Bテーブルを作成*/
+/*b_classesテーブルを作成*/
 CREATE TABLE
-	Classes_B
+	b_classes
 	(
 		id INT,
 		name VARCHAR(20),
@@ -350,9 +350,9 @@ CREATE TABLE
 	)
 ;
 
-/*Classes_Bテーブルに値を挿入*/
+/*b_classesテーブルに値を挿入*/
 INSERT INTO
-	Classes_B
+	b_classes
 	(
 		id,
 		name

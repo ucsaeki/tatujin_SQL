@@ -4,15 +4,15 @@ EX8-③ 完全外部結合とMERGE文
 /*Class_AにClass_Bのデータをマージする*/
 
 INSERT INTO
-	Classes_A
+	a_classes
 	(
 		SELECT
 			id,
 			name
 		FROM
-			Classes_B
+			b_classes
 	)
 ON DUPLICATE KEY UPDATE
-	Classes_A.id = Classes_B.id,
-	Classes_A.name = Classes_B.name
+	a_classes.id = b_classes.id,
+	a_classes.name = b_classes.name
 ;

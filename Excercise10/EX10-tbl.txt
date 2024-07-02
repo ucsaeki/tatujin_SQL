@@ -1,24 +1,24 @@
 EX10 テーブル作成
 
 
-〇Seq_tablesテーブル作成
+〇sequencesテーブル作成
 
-/*Seq_tablesテーブルを削除*/
+/*sequencesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Seq_tables
+	sequences
 ;
 
-/*Seq_tablesテーブルを作成*/
+/*sequencesテーブルを作成*/
 CREATE TABLE
-	Seq_tables
+	sequences
 	(
 		seq INT PRIMARY KEY
 	)
 ;
 
-/*Seq_tablesテーブルに値を挿入*/
+/*sequencesテーブルに値を挿入*/
 INSERT INTO
-	Seq_tables
+	sequences
 	(
 		seq
 	)
@@ -68,16 +68,16 @@ VALUES
 +-----+
 
 
-〇Seatsテーブル作成
+〇seatsテーブル作成
 
-/*Seatsテーブルを削除*/
+/*seatsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Seats
+	seats
 ;
 
-/*Seatsテーブルを作成*/
+/*seatsテーブルを作成*/
 CREATE TABLE
-	Seats
+	seats
 	(
 		seat INT,
 		status CHAR(1),
@@ -85,9 +85,9 @@ CREATE TABLE
 	)
 ;
 
-/*Seatsテーブルに値を挿入*/
+/*seatsテーブルに値を挿入*/
 INSERT INTO
-	Seats
+	seats
 	(
 		seat,
 		status
@@ -176,16 +176,16 @@ VALUES
 |   15 | 空     |
 +------+--------+
 
-〇Seats2テーブル作成
+〇seats2テーブル作成
 
-/*Seats2テーブルを削除*/
+/*seats2テーブルを削除*/
 DROP TABLE IF EXISTS
-	Seats2
+	seats2
 ;
 
-/*Seats2テーブルを作成*/
+/*seats2テーブルを作成*/
 CREATE TABLE
-	Seats2
+	seats2
 	(
 		seat INT,
 		line_id CHAR(1),
@@ -194,9 +194,9 @@ CREATE TABLE
 	)
 ;
 
-/*Seats2テーブルに値を挿入*/
+/*seats2テーブルに値を挿入*/
 INSERT INTO
-	Seats2
+	seats2
 	(
 		seat,
 		line_id,

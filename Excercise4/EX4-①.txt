@@ -1,6 +1,6 @@
 EX4-① オーダーバイ句によるソート結果でのNULL
 
-※例としてP.67、Studentsテーブルを使用
+※例としてP.67、studentsテーブルを使用
 
 
 SELECT

@@ -6,9 +6,9 @@ CREATE VIEW
 		SELECT
 			D1.digit + (D2.digit * 10) AS serial_number
 		FROM
-			Digits AS D1
+			digits AS D1
 		CROSS JOIN
-			Digits AS D2
+			digits AS D2
 ;
 
 

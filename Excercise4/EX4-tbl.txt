@@ -1,15 +1,15 @@
 EX4 テーブル作成
 
-〇Studentsテーブル作成
+〇studentsテーブル作成
 
-/*Studentsテーブルを削除*/
+/*studentsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Students
+	students
 ;
 
-/*Studentsテーブルを作成*/
+/*studentsテーブルを作成*/
 CREATE TABLE
-	Students
+	students
 	(
 		name VARCHAR(20),
 		age VARCHAR(10) NULL,
@@ -17,9 +17,9 @@ CREATE TABLE
 	)
 ;
 
-/*Studentsテーブルに値を挿入*/
+/*studentsテーブルに値を挿入*/
 INSERT INTO
-	Students
+	students
 	(
 		name,
 		age

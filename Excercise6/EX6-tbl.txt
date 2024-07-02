@@ -1,15 +1,15 @@
 EX6 テーブル作成
 
-〇Seq_Tablesテーブル作成
+〇sequensesテーブル作成
 
-/*SeqTblテーブルを削除*/
+/*sequensesテーブルを削除*/
 DROP TABLE IF EXISTS
-	Seq_Tables
+	sequenses
 ;
 
-/*Seq_Tablesテーブルを作成*/
+/*sequensesテーブルを作成*/
 CREATE TABLE
-	Seq_Tables
+	sequenses
 	(
 		seq INT,
 		name VARCHAR(20),
@@ -17,9 +17,9 @@ CREATE TABLE
 	)
 ;
 
-/*Seq_Tablesテーブルに値を挿入*/
+/*sequensesテーブルに値を挿入*/
 INSERT INTO
-	Seq_Tables
+	sequenses
 	(
 		seq,
 		name
@@ -64,16 +64,16 @@ VALUES
 +-----+----------+
 
 
-〇Studentsテーブル作成
+〇studentsテーブル作成
 
-/*Studentsテーブルを削除*/
+/*studentsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Students
+	students
 ;
 
-/*Studentsテーブルを作成*/
+/*studentsテーブルを作成*/
 CREATE TABLE
-	Students
+	students
 	(
 		student_id VARCHAR(10),
 		dpt VARCHAR(20),
@@ -82,9 +82,9 @@ CREATE TABLE
 	)
 ;
 
-/*Studentsテーブルに値を挿入*/
+/*studentsテーブルに値を挿入*/
 INSERT INTO
-	Students
+	students
 	(
 		student_id,
 		dpt,
@@ -141,16 +141,16 @@ VALUES
 | 202        | 経済学部 | 2018-09-25 |
 +------------+----------+------------+
 
-〇Itemsテーブル作成
+〇itemsテーブル作成
 
-/*Itemsテーブルを削除*/
+/*itemsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Items
+	items
 ;
 
-/*Itemsテーブルを作成*/
+/*itemsテーブルを作成*/
 CREATE TABLE
-	Items
+	items
 	(
 		item VARCHAR(20) PRIMARY KEY
 	)
@@ -158,7 +158,7 @@ CREATE TABLE
 
 /*Itemsテーブルに値を挿入*/
 INSERT INTO
-	Items
+	items
 	(
 		item
 	)
@@ -183,16 +183,16 @@ VALUES
 | 自転車   |
 +----------+
 
-〇Shop_Itemsテーブル作成
+〇shop_itemsテーブル作成
 
-/*Shop_Itemsテーブルを削除*/
+/*shop_itemsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Shop_Items
+	shop_items
 ;
 
-/*Shop_Itemsテーブルを作成*/
+/*shop_itemsテーブルを作成*/
 CREATE TABLE
-	Shop_Items
+	shop_items
 	(
 		shop VARCHAR(10),
 		item VARCHAR(20),
@@ -200,9 +200,9 @@ CREATE TABLE
 	)
 ;
 
-/*Shop_Itemsテーブルに値を挿入*/
+/*shop_itemsテーブルに値を挿入*/
 INSERT INTO
-	Shop_Items
+	shop_items
 	(
 		shop,
 		item

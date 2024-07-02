@@ -5,7 +5,7 @@ EX6-② 特性関数の練習
 SELECT
 	dpt
 FROM
-	Students
+	students
 GROUP BY
 	dpt
 HAVING

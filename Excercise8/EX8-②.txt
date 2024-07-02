@@ -8,17 +8,17 @@ AS
 	SELECT
 		child_1
 	FROM
-		Personnels
+		personnels
 	UNION
 	SELECT
 		child_2
 	FROM
-		Personnels
+		personnels
 	UNION
 	SELECT
 		child_3
 	FROM
-		Personnels
+		personnels
 ;
 
 /*社員ごとの子供の人数を表示*/
@@ -27,7 +27,7 @@ SELECT
 	EMP.employee,
 	COUNT(Children.child)
 FROM
-	Personnels EMP
+	personnels EMP
 LEFT OUTER JOIN
 	Children
 ON

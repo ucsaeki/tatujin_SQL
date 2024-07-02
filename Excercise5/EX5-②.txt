@@ -5,7 +5,7 @@ EX5-② ALL述語による全称量化
 SELECT
 	*
 FROM
-	Projects AS P1
+	projects AS P1
 /*1は条件と合致していることの判定のために使用*/
 WHERE 1 = ALL
 	(
@@ -17,7 +17,7 @@ WHERE 1 = ALL
 				ELSE 0
 			END
 		FROM
-			Projects AS P2
+			projects AS P2
 		WHERE
 			P1.project_id = P2.project_id
 	)

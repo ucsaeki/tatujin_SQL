@@ -1,15 +1,15 @@
 EX2 テーブル作成
 
-〇ServerLoadSamplesテーブル作成
+〇server_load_samplesテーブル作成
 
-/*ServerLoadSampleテーブルを削除*/
+/*server_load_samplesテーブルを削除*/
 DROP TABLE IF EXISTS
-	ServerLoadSamples
+	server_load_samples
 ;
 
-/*ServerLoadSamplesテーブルを作成*/
+/*server_load_samplesテーブルを作成*/
 CREATE TABLE
-	ServerLoadSamples
+	server_load_samples
 	(
 		server CHAR(1),
 		sample_date DATE,
@@ -18,9 +18,9 @@ CREATE TABLE
 	)
 ;
 
-/*ServerLoadSamplesテーブルに値を挿入*/
+/*server_load_samplesテーブルに値を挿入*/
 INSERT INTO
-	ServerLoadSamples
+	server_load_samples
 	(
 		server,
 		sample_date,

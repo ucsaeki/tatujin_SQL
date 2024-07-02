@@ -3,13 +3,13 @@ EX10-① 欠番を全て求める
 /*0から999までの連番を持つビューを作成*/
 
 CREATE VIEW
-	Sequence (seq) AS
+	sequence_view (seq) AS
 	SELECT
 		D1.digit + (D2.digit * 10) + (D3.digit * 100)
 	FROM
-		Digits AS D1
-		CROSS JOIN Digits AS D2
-		CROSS JOIN Digits AS D3
+		digits AS D1
+		CROSS JOIN digits AS D2
+		CROSS JOIN digits AS D3
 ;
 
 〇NOT EXISTSを使用
@@ -18,7 +18,7 @@ CREATE VIEW
 SELECT
 	seq
 FROM
-	Sequence AS s
+	sequence_view AS s
 WHERE
 	/*欠番を求めたい範囲が1～12であることを表示*/
 	seq BETWEEN 1 AND 12
@@ -28,7 +28,7 @@ AND
 			SELECT
 				seq
 			FROM
-				Seq_tables AS t
+				sequences AS t
 			WHERE
 				s.seq = t.seq
 		)
@@ -38,9 +38,9 @@ AND
 SELECT
 	s.seq
 FROM
-	Sequence AS s
+	sequence_view AS s
 LEFT OUTER JOIN
-	Seq_tables AS t
+	sequences AS t
 ON
 	s.seq = t.seq
 WHERE

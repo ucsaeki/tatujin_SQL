@@ -1,15 +1,15 @@
 EX3 テーブル作成
 
-〇Productsテーブル作成
+〇productsテーブル作成
 
-/*Productsテーブルを削除*/
+/*productsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Products
+	products
 ;
 
-/*テーブルを作成*/
+/*productsテーブルを作成*/
 CREATE TABLE
-	Products
+	products
 	(
 		name VARCHAR(20),
 		price INT,
@@ -17,9 +17,9 @@ CREATE TABLE
 	)
 ;
 
-/*Productsテーブルに値を挿入*/
+/*productsテーブルに値を挿入*/
 INSERT INTO
-	Products
+	products
 	(
 		name,
 		price
@@ -48,16 +48,16 @@ VALUES
 | りんご |    50 |
 +--------+-------+
 
-〇Products2テーブル作成
+〇products2テーブル作成
 
 /*テーブルを削除*/
 DROP TABLE IF EXISTS
-	Products2
+	products2
 ;
 
 /*テーブルを作成*/
 CREATE TABLE
-	Products2
+	products2
 	(
 		name VARCHAR(20),
 		price INT
@@ -66,7 +66,7 @@ CREATE TABLE
 
 /*テーブルに値を挿入*/
 INSERT INTO
-	Products2
+	products2
 	(
 		name,
 		price

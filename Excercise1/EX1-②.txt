@@ -1,148 +1,166 @@
 EX1-② 合計と再掲を表頭に出力する行列変換
 
+/*全国合計、四国各県、四国全体のそれぞれにおける性別ごとの人口を表示する*/
 SELECT
 	CASE
+		/*1は性別が男をであることを表す*/
 		WHEN sex = 1 THEN '男'
 		ELSE '女'
 	END AS '性別',
 
 	CASE
+		/*1は性別が男をであることを表す*/
 		WHEN sex = 1 THEN SUM(population)
 		ELSE SUM(population)
 	END AS '全国',
 	
 	CASE
+		/*1は性別が男をであることを表す*/
 		WHEN sex = 1 THEN (
 			SELECT
 				population
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
-				pref_name = '徳島'
+				prefecture_name = '徳島'
 			AND
+				/*1は性別が男をであることを表す*/
 				sex = 1
 		)
 		ELSE (
 			SELECT
 				population
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
-				pref_name = '徳島'
+				prefecture_name = '徳島'
 			AND
+				/*2は性別が女であることを表す*/
 				sex = 2
 			)
 	END AS '徳島',
 	
 	CASE
+		/*1は性別が男をであることを表す*/
 		WHEN sex = 1 THEN (
 			SELECT
 				population
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
-				pref_name = '香川'
+				prefecture_name = '香川'
 			AND
+				/*1は性別が男をであることを表す*/
 				sex = 1
 		)
 		ELSE (
 			SELECT
 				population
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
-				pref_name = '香川'
+				prefecture_name = '香川'
 			AND
+				/*2は性別が女であることを表す*/
 				sex = 2
 			)
 	END AS '香川',
 	
 	CASE
+		/*1は性別が男をであることを表す*/
 		WHEN sex = 1 THEN (
 			SELECT
 				population
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
-				pref_name = '愛媛'
+				prefecture_name = '愛媛'
 			AND
+				/*1は性別が男をであることを表す*/
 				sex = 1
 		)
 		ELSE (
 			SELECT
 				population
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
-				pref_name = '愛媛'
+				prefecture_name = '愛媛'
 			AND
+				/*2は性別が女であることを表す*/
 				sex = 2
 			)
 	END AS '愛媛',
 	
 	CASE
+		/*1は性別が男をであることを表す*/
 		WHEN sex = 1 THEN (
 			SELECT
 				population
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
-				pref_name = '高知'
+				prefecture_name = '高知'
 			AND
+				/*1は性別が男をであることを表す*/
 				sex = 1
 		)
 		ELSE (
 			SELECT
 				population
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
-				pref_name = '高知'
+				prefecture_name = '高知'
 			AND
+				/*2は性別が女であることを表す*/
 				sex = 2
 			)
 	END AS '高知',
 	
 	CASE
+		/*1は性別が男をであることを表す*/
 		WHEN sex = 1 THEN (
 			SELECT
 				SUM( population )
 			FROM
-				Pop_Tables
+				population_tables
 			WHERE
 				(
-						pref_name = '徳島'
+						prefecture_name = '徳島'
 					OR
-						pref_name = '香川'
+						prefecture_name = '香川'
 					OR
-						pref_name = '愛媛'
+						prefecture_name = '愛媛'
 					OR
-						pref_name = '高知'
+						prefecture_name = '高知'
 				)
 			AND
+				/*1は性別が男をであることを表す*/
 				sex = 1
 		)
 		ELSE (
 				SELECT
 					SUM( population )
 				FROM
-					Pop_Tables
+					population_tables
 				WHERE
 					(
-							pref_name = '徳島'
+							prefecture_name = '徳島'
 						OR
-							pref_name = '香川'
+							prefecture_name = '香川'
 						OR
-							pref_name = '愛媛'
+							prefecture_name = '愛媛'
 						OR
-							pref_name = '高知'
+							prefecture_name = '高知'
 					)
 				AND
+					/*2は性別が女であることを表す*/
 					sex = 2
 			)
 	END AS '四国（再掲）'
 FROM
-	Pop_Tables
+	population_tables
 GROUP BY
 	sex
 ;

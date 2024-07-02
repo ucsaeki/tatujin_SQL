@@ -8,5 +8,5 @@ SELECT
 		ELSE '歯抜けあり'
 	END AS gap
 FROM
-	Seq_Tables
+	sequenses
 ;

@@ -1,47 +1,45 @@
 EX1-① 複数列の最大値
 
 
-・xとyの最大値
-
+/*xとyの最大値を求める*/
 SELECT
 	key_code AS 'key',
 	CASE 
-		WHEN x > y THEN x
-		ELSE y
+		WHEN x_number > y_number THEN x_number
+		ELSE y_number
 	END AS 'greatest'
 FROM
-	Greatests
+	greatests
 ;
 
 
 
-・x,y,zの最大値
-
+/*x,y,zの最大値を求める*/
 SELECT
 	key_code AS 'key',
 	CASE
-		WHEN x > y THEN
+		WHEN x_number > y_number THEN
 		(
 			CASE
-				WHEN x > z THEN x 
-				ELSE z
+				WHEN x_number > z_number THEN x_number
+				ELSE z_number
 			END
 		)
-		WHEN y > x THEN
+		WHEN y_number > x_number THEN
 		(
 			CASE
-				WHEN y > z THEN y
-				ELSE z
+				WHEN y_number > z_number THEN y_number
+				ELSE z_number
 			END
 		)
 	ELSE 
 		(
 			CASE
-				WHEN x > z THEN x
-				ELSE z
+				WHEN x_number > z_number THEN x_number
+				ELSE z_number
 			END
 		)
 	END AS 'greatest'
 FROM
-	Greatests
+	greatests
 ;

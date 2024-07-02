@@ -8,25 +8,25 @@ SELECT
 		SELECT
 			COUNT(*)
 		FROM
-			Tables_A
-	) AS 'COUNT(Tables_A)',
+			a_codes
+	) AS 'COUNT(a_codes)',
 	(
 		SELECT
 			COUNT(*)
 		FROM
-			Tables_B
-	) AS 'COUNT(Tables_B)',
+			b_codes
+	) AS 'COUNT(b_codes)',
 	COUNT(*) AS row_cnt
 FROM
 	(
 		SELECT
 			*
 		FROM
-			Tables_A
+			a_codes
 	UNION
 		SELECT
 			*
 		FROM
-			Tables_B
+			b_codes
 	) AS TMP
 ;

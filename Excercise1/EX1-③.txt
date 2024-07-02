@@ -1,14 +1,20 @@
 EX1-③ORDER BYでソートを作る
 
+
+/*greatestsテーブルを指定された行の順番に変更する*/
 SELECT
 	*
 FROM
-	Greatests
+	greatests
 ORDER BY
 	CASE 
+		/*1は行の1番目に配置することを表す*/
 		WHEN key_code = 'B' THEN 1
+		/*2は行の2番目に配置することを表す*/
 		WHEN key_code = 'A' THEN 2
+		/*3は行の3番目に配置することを表す*/
 		WHEN key_code = 'D' THEN 3
+		/*4は行の4番目に配置することを表す*/
 		WHEN key_code = 'C' THEN 4
 		ELSE 0
 	END

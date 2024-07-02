@@ -6,13 +6,13 @@ EX5-① 配列テーブル――行持ちの場合
 SELECT DISTINCT
 	number_key
 FROM
-	Array_Tables2 AS AT1
+	arrays AS AT1
 WHERE EXISTS
 	(
 		SELECT
 			number_key
 		FROM
-			Array_Tables2 AS AT2
+			arrays AS AT2
 		WHERE
 			AT2.number_key = AT1.number_key
 		AND
@@ -27,8 +27,9 @@ WHERE EXISTS
 SELECT DISTINCT
 	number_key
 FROM
-	Array_Tables2
+	arrays
 WHERE
+	/*1は問題で指定されたエンティティを示す値*/
 	val = 1
 ;
 

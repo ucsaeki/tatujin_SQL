@@ -14,7 +14,7 @@ SELECT
 		)
 	,0 )  AS 'AVG(prc_amt)'
 FROM
-	Accounts
+	accounts
 GROUP BY
 	prc_date
 ;

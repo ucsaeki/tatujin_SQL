@@ -23,12 +23,12 @@ FROM
 			age_class,
 			sex_cd
 		FROM
-			Tbl_Ages
+			ages
 		CROSS JOIN
-			Tbl_sexes
+			tbl_sexes
 	) AS MASTER
 LEFT OUTER JOIN
-	Tbl_Pops AS t
+	tbl_pops AS t
 ON
 	t.age_class = MASTER.age_class
 AND

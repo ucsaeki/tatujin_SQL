@@ -19,9 +19,9 @@ SELECT
 	'～',
 	S2.seat AS end_seat
 FROM
-	Seats AS S1,
-	Seats AS S2,
-	Seats AS S3
+	seats AS S1,
+	seats AS S2,
+	seats AS S3
 WHERE
 	/*1は空席の連続数を表すパラメータの誤差を修正するために使用*/
 	S2.seat = S1.seat + (@head_cnt - 1)
@@ -49,9 +49,9 @@ SELECT
 	'～',
 	S2.seat AS end_seat
 FROM
-	Seats2 AS S1,
-	Seats2 AS S2,
-	Seats2 AS S3
+	seats2 AS S1,
+	seats2 AS S2,
+	seats2 AS S3
 WHERE
 	/*1は空席の連続数を表すパラメータの誤差を修正するために使用*/
 	S2.seat = S1.seat + (@head_cnt - 1)
