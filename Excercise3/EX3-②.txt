@@ -1,38 +1,35 @@
 EX3-② ウィンドウ関数で重複削除
 
 
-/*重複のあるテーブルに一意な番号を付与*/
-
-ALTER TABLE
-	products2
-ADD
-	row_number INT AUTO_INCREMENT PRIMARY KEY
+/*copy_productsテーブルを削除*/
+DROP TABLE IF EXISTS
+	copy_products
 ;
 
+/*products2テーブルに一意な連番を付与したcopy_productsテーブルを作成*/
+CREATE TABLE
+	copy_products AS
+	(
+		SELECT
+			ROW_NUMBER() OVER(ORDER BY name) AS row_number,
+			name,
+			price
+		FROM
+			products2
+	)
+;
 
-/*nameでソートした際に一意な番号の最大値とならないレコードを削除*/
-
+/*nameごとの最大の識別子を持たない行を削除する*/
 DELETE FROM
-	products2
-WHERE
+	copy_products
+WHERE 
 	row_number NOT IN
-		(
-			SELECT
-				MAX(row_number)
-			FROM
-				products2
-			Group BY
-				name,
-				price
-		)
+	(
+		SELECT
+			MAX(row_number)
+		FROM
+			copy_products
+		GROUP BY
+			name
+	)
 ;
-
-
-/*重複を取り除いたテーブルから計算のために付与した一意な番号を取り除く。*/
-
-ALTER TABLE
-	products2
-DROP
-	row_number
-;
-
