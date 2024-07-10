@@ -1,20 +1,21 @@
 EX10-① 欠番を全て求める
 
 /*0から999までの連番を持つビューを作成*/
-
 CREATE VIEW
 	sequence_view (seq) AS
-	SELECT
-		D1.digit + (D2.digit * 10) + (D3.digit * 100)
-	FROM
-		digits AS D1
-		CROSS JOIN digits AS D2
-		CROSS JOIN digits AS D3
+	(
+		SELECT
+			/*10は十の位、100は百の位の数字を表すために使用*/
+			D1.digit + (D2.digit * 10) + (D3.digit * 100)
+		FROM
+			digits AS D1
+			CROSS JOIN digits AS D2
+			CROSS JOIN digits AS D3
+	)
 ;
 
 〇NOT EXISTSを使用
 /*連番を持つビューを用いて、テーブルの欠番を表示する。*/
-
 SELECT
 	seq
 FROM
@@ -35,6 +36,7 @@ AND
 ;
 
 〇外部結合を使用
+/*連番を持つビューを用いて、テーブルの欠番を表示する。*/
 SELECT
 	s.seq
 FROM

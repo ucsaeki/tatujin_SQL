@@ -1,5 +1,6 @@
 EX3-① 重複組み合わせ
 
+/*productsのすべての組み合わせを求める*/
 SELECT
 	P1.name AS name_1,
 	P2.name As name_2
@@ -8,5 +9,5 @@ FROM
 INNER JOIN
 	products P2
 ON
-	P1.name >= P2.name
+	P1.name <= P2.name
 ;
