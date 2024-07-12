@@ -2,34 +2,35 @@ EX5-① 配列テーブル――行持ちの場合
 
 
 ・EXISTS使用
-
+/*valueがすべて1のエンティティを表示する*/
 SELECT DISTINCT
-	number_key
+	key_code
 FROM
 	arrays AS AT1
 WHERE EXISTS
 	(
 		SELECT
-			number_key
+			key_code
 		FROM
 			arrays AS AT2
 		WHERE
-			AT2.number_key = AT1.number_key
+			AT2.key_code = AT1.key_code
 		AND
 			/*1は問題で指定されたエンティティを示す値*/
-			val = 1
+			value = 1
 	)
 ;
 
 
 ・EXISTS不使用
 
+/*valがすべて1のエンティティを表示する*/
 SELECT DISTINCT
-	number_key
+	key_code
 FROM
 	arrays
 WHERE
 	/*1は問題で指定されたエンティティを示す値*/
-	val = 1
+	value = 1
 ;
 

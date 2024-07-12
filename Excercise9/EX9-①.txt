@@ -1,32 +1,36 @@
 EX9-① UNIONだけを使うコンペアの改良
 
+・テーブルの行数の合計をCOUNT句で算出することで事前準備が不要になる。
 
 /*二つのテーブルの相当性を比較する*/
-
 SELECT
-	(
-		SELECT
-			COUNT(*)
-		FROM
-			a_codes
-	) AS 'COUNT(a_codes)',
-	(
-		SELECT
-			COUNT(*)
-		FROM
-			b_codes
-	) AS 'COUNT(b_codes)',
-	COUNT(*) AS row_cnt
-FROM
-	(
-		SELECT
-			*
-		FROM
-			a_codes
-	UNION
-		SELECT
-			*
-		FROM
-			b_codes
-	) AS TMP
+	CASE
+		WHEN COUNT(*) =
+		(
+			SELECT
+				COUNT(*)
+			FROM
+				first_codes
+		)
+		AND COUNT(*) =
+		(
+			SELECT
+				COUNT(*)
+			FROM
+				second_codes
+		)
+		THEN '等しい'
+		ELSE '異なる'
+	END AS result
+FROM(
+			SELECT
+				*
+			FROM
+				first_codes
+		UNION
+			SELECT
+				*
+			FROM
+				second_codes
+	)AS c
 ;

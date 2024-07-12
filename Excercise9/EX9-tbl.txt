@@ -1,31 +1,31 @@
 EX9 テーブル作成
 
 
-/*a_codesテーブルを削除*/
+/*first_codesテーブルを削除*/
 DROP TABLE IF EXISTS
-	a_codes
+	first_codes
 ;
 
-/*a_codesテーブルを作成*/
+/*first_codesテーブルを作成*/
 CREATE TABLE
-	a_codes
+	first_codes
 	(
 		key_code CHAR(1),
-		col_1 INT,
-		col_2 INT,
-		col_3 INT,
+		first_column INT,
+		second_column INT,
+		third_column INT,
 		PRIMARY KEY (key_code)
 	)
 ;
 
-/*a_codesテーブルに値を挿入*/
+/*first_codesテーブルに値を挿入*/
 INSERT INTO
-	a_codes
+	first_codes
 	(
 		key_code,
-		col_1,
-		col_2,
-		col_3
+		first_column,
+		second_column,
+		third_column
 	)
 VALUES
 	(
@@ -50,40 +50,40 @@ VALUES
 
 
 〇作成したテーブル
-+----------+-------+-------+-------+
-| key_code | col_1 | col_2 | col_3 |
-+----------+-------+-------+-------+
-| A        |     2 |     3 |     4 |
-| B        |     0 |     7 |     9 |
-| C        |     5 |     1 |     6 |
-+----------+-------+-------+-------+
++----------+--------------+---------------+--------------+
+| key_code | first_column | second_column | third_column |
++----------+--------------+---------------+--------------+
+| A        |            2 |             3 |            4 |
+| B        |            0 |             7 |            9 |
+| C        |            5 |             1 |            6 |
++----------+--------------+---------------+--------------+
 
 
-/*b_codesテーブルを削除*/
+/*second_codesテーブルを削除*/
 DROP TABLE IF EXISTS
-	b_codes
+	second_codes
 ;
 
-/*b_codesテーブルを作成*/
+/*second_codesテーブルを作成*/
 CREATE TABLE
-	b_codes
+	second_codes
 	(
 		key_code CHAR(1),
-		col_1 INT,
-		col_2 INT,
-		col_3 INT,
+		first_column INT,
+		second_column INT,
+		third_column INT,
 		PRIMARY KEY (key_code)
 	)
 ;
 
-/*b_codesテーブルに値を挿入*/
+/*second_codesテーブルに値を挿入*/
 INSERT INTO
-	b_codes
+	second_codes
 	(
 		key_code,
-		col_1,
-		col_2,
-		col_3
+		first_column,
+		second_column,
+		third_column
 	)
 VALUES
 	(
@@ -108,13 +108,13 @@ VALUES
 
 
 〇作成したテーブル
-+----------+-------+-------+-------+
-| key_code | col_1 | col_2 | col_3 |
-+----------+-------+-------+-------+
-| A        |     2 |     3 |     4 |
-| B        |     0 |     7 |     9 |
-| C        |     5 |     1 |     6 |
-+----------+-------+-------+-------+
++----------+--------------+---------------+--------------+
+| key_code | first_column | second_column | third_column |
++----------+--------------+---------------+--------------+
+| A        |            2 |             3 |            4 |
+| B        |            0 |             7 |            9 |
+| C        |            5 |             1 |            6 |
++----------+--------------+---------------+--------------+
 
 〇skillsテーブル作成
 
@@ -158,28 +158,28 @@ VALUES
 | UNIX   |
 +--------+
 
-〇Emp_skillsテーブル作成
+〇employee_skillsテーブル作成
 
-/*Emp_skillsテーブルを削除*/
+/*employee_skillsテーブルを削除*/
 DROP TABLE IF EXISTS
-	Emp_skills
+	employee_skills
 ;
 
-/*Emp_skillsテーブルを作成*/
+/*employee_skillsテーブルを作成*/
 CREATE TABLE
-	Emp_skills
+	employee_skills
 	(
-		emp VARCHAR(20),
+		employee VARCHAR(20),
 		skill VARCHAR(20),
-		PRIMARY KEY (emp, skill)
+		PRIMARY KEY (employee, skill)
 	)
 ;
 
-/*Emp_skillsテーブルに値を挿入*/
+/*employee_skillsテーブルに値を挿入*/
 INSERT INTO
-	Emp_skills
+	employee_skills
 	(
-		emp,
+		employee,
 		skill
 	)
 VALUES
@@ -242,21 +242,21 @@ VALUES
 ;
 
 〇作成したテーブル
-+--------+--------+
-| emp    | skill  |
-+--------+--------+
-| 平井   | C++    |
-| 平井   | Oracle |
-| 平井   | Perl   |
-| 平井   | PHP    |
-| 平井   | UNIX   |
-| 渡来   | Oracle |
-| 相田   | C#     |
-| 相田   | Java   |
-| 相田   | Oracle |
-| 相田   | UNIX   |
-| 神崎   | Java   |
-| 神崎   | Oracle |
-| 神崎   | UNIX   |
-| 若田部 | Perl   |
-+--------+--------+
++----------+--------+
+| employee | skill  |
++----------+--------+
+| 平井     | C++    |
+| 平井     | Oracle |
+| 平井     | Perl   |
+| 平井     | PHP    |
+| 平井     | UNIX   |
+| 渡来     | Oracle |
+| 相田     | C#     |
+| 相田     | Java   |
+| 相田     | Oracle |
+| 相田     | UNIX   |
+| 神崎     | Java   |
+| 神崎     | Oracle |
+| 神崎     | UNIX   |
+| 若田部   | Perl   |
++----------+--------+

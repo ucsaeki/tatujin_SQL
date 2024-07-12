@@ -4,9 +4,9 @@ EX9-② 厳密な関係除算
 /*スキルの内容と個数を過不足なく見たしている人を表示する*/
 
 SELECT DISTINCT
-	emp
+	employee
 FROM
-	Emp_skills AS ES1
+	employee_skills AS ES1
 WHERE NOT EXISTS
 	(
 		SELECT
@@ -17,12 +17,12 @@ WHERE NOT EXISTS
 		SELECT
 			skill
 		FROM
-			Emp_skills AS ES2
+			employee_skills AS ES2
 		WHERE
-			ES1.emp = ES2.emp
+			ES1.employee = ES2.employee
 	)
 GROUP BY
-	emp
+	employee
 HAVING
 	COUNT(ES1.skill) = 
 	(
