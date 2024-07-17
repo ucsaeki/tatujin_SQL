@@ -3,22 +3,28 @@ EX5-② ALL述語による全称量化
 /*工程番号0と1が完了、それ以外が待機となっているプロジェクトを表示する*/
 
 SELECT
-	*
+	P1.project_id
 FROM
 	projects AS P1
 /*1は条件と合致していることの判定のために使用*/
 WHERE 1 = ALL
 	(
-		SELECT
-			CASE 
-				WHEN step_nbr = 0 AND status = '完了' THEN 1
-				WHEN step_nbr = 1 AND status = '完了' THEN 1
-				WHEN step_nbr > 1 AND status = '待機' THEN 1
-				ELSE 0
-			END
-		FROM
-			projects AS P2
-		WHERE
-			P1.project_id = P2.project_id
+	SELECT
+		CASE 
+			/*1は条件と合致していることの判定のために使用*/
+			WHEN step_number = 0 AND status = '完了' THEN 1
+			/*1は条件と合致していることの判定のために使用*/
+			WHEN step_number = 1 AND status = '完了' THEN 1
+			/*1は条件と合致していることの判定のために使用*/
+			WHEN step_number > 1 AND status = '待機' THEN 1
+			/*0は条件と合致していないことの判定のために使用*/
+			ELSE 0
+		END
+	FROM
+		projects AS P2
+	WHERE
+		P1.project_id = P2.project_id
 	)
+GROUP BY
+	project_id
 ;

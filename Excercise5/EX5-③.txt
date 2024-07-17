@@ -1,9 +1,15 @@
 EX5-③ 素数を求める
 
+/*Sequenceビューを削除する*/
+DROP VIEW IF EXISTS
+	Sequence
+;
+
 /*digitテーブルを用いて0～99までの連番を持つSequenceビューを作成*/
 CREATE VIEW
 	Sequence AS
 		SELECT
+			/*10は10の位の数字を生成するために使用*/
 			D1.digit + (D2.digit * 10) AS serial_number
 		FROM
 			digits AS D1
@@ -31,10 +37,10 @@ AND NOT EXISTS
 			/*2は素数の判定に使用する最大の約数の作成に使用*/
 			N2.serial_number <= N1.serial_number / 2
 		AND
-			/*1は素数の判定として割る数が1以外の場合を指定*/
+			/*1は素数の判定として、割る数が1以外の場合を指定*/
 			N2.serial_number <> 1
 		AND
-			/*0は割り切れるか同課の判定に使用*/
+			/*0は割り切れるかどうかの判定に使用*/
 			N1.serial_number % N2.serial_number = 0
 	)
 ;

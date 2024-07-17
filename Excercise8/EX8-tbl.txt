@@ -48,28 +48,28 @@ VALUES
 | 3         | 41～50歳  |
 +-----------+-----------+
 
-〇tbl_sexesテーブル作成
+〇sexesテーブル作成
 
-/*tbl_sexesテーブルを削除*/
+/*sexesテーブルを削除*/
 DROP TABLE IF EXISTS
-	tbl_sexes
+	sexes
 ;
 
-/*tbl_sexesテーブルを作成*/
+/*sexesテーブルを作成*/
 CREATE TABLE
-	tbl_sexes
+	sexes
 	(
-		sex_cd CHAR(1),
+		sex_code CHAR(1),
 		sex CHAR(1),
-		PRIMARY KEY (sex_cd)
+		PRIMARY KEY (sex_code)
 	)
 ;
 
-/*tbl_sexesテーブルに値を挿入*/
+/*sexesテーブルに値を挿入*/
 INSERT INTO
-	tbl_sexes
+	sexes
 	(
-		sex_cd,
+		sex_code,
 		sex
 	)
 VALUES
@@ -84,40 +84,40 @@ VALUES
 ;
 
 〇作成したテーブル
-+--------+------+
-| sex_cd | sex  |
-+--------+------+
-| f      | 女   |
-| m      | 男   |
-+--------+------+
++----------+------+
+| sex_code | sex  |
++----------+------+
+| f        | 女   |
+| m        | 男   |
++----------+------+
 
 
-〇tbl_popsテーブル作成
+〇populationsテーブル作成
 
 /*テーブルを削除*/
 DROP TABLE IF EXISTS
-	tbl_pops
+	populations
 ;
 
 /*テーブルを作成*/
 CREATE TABLE
-	tbl_pops
+	populations
 	(
-		pref_name VARCHAR(10),
+		prefecture_name VARCHAR(10),
 		age_class CHAR(1),
-		sex_cd CHAR(1),
+		sex_code CHAR(1),
 		population INT,
-		PRIMARY KEY (pref_name,age_class,sex_cd)
+		PRIMARY KEY (prefecture_name,age_class,sex_code)
 	)
 ;
 
 /*テーブルに値を挿入*/
 INSERT INTO
-	tbl_pops
+	populations
 	(
-		pref_name,
+		prefecture_name,
 		age_class,
-		sex_cd,
+		sex_code,
 		population
 	)
 VALUES
@@ -202,23 +202,23 @@ VALUES
 ;
 
 〇作成したテーブル
-+-----------+-----------+--------+------------+
-| pref_name | age_class | sex_cd | population |
-+-----------+-----------+--------+------------+
-| 千葉      | 1         | f      |       1000 |
-| 千葉      | 1         | m      |        900 |
-| 千葉      | 3         | f      |        900 |
-| 東京      | 1         | f      |       1500 |
-| 東京      | 1         | m      |        900 |
-| 東京      | 3         | f      |       1200 |
-| 秋田      | 1         | f      |        800 |
-| 秋田      | 1         | m      |        400 |
-| 秋田      | 3         | f      |       1000 |
-| 秋田      | 3         | m      |       1000 |
-| 青森      | 1         | f      |        500 |
-| 青森      | 1         | m      |        700 |
-| 青森      | 3         | f      |        800 |
-+-----------+-----------+--------+------------+
++-----------------+-----------+----------+------------+
+| prefecture_name | age_class | sex_code | population |
++-----------------+-----------+----------+------------+
+| 千葉            | 1         | f        |       1000 |
+| 千葉            | 1         | m        |        900 |
+| 千葉            | 3         | f        |        900 |
+| 東京            | 1         | f        |       1500 |
+| 東京            | 1         | m        |        900 |
+| 東京            | 3         | f        |       1200 |
+| 秋田            | 1         | f        |        800 |
+| 秋田            | 1         | m        |        400 |
+| 秋田            | 3         | f        |       1000 |
+| 秋田            | 3         | m        |       1000 |
+| 青森            | 1         | f        |        500 |
+| 青森            | 1         | m        |        700 |
+| 青森            | 3         | f        |        800 |
++-----------------+-----------+----------+------------+
 
 〇personnelsテーブル作成
 

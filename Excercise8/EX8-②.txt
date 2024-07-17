@@ -1,39 +1,49 @@
 EX8-② 子供の数にご用心
 
-/*子供の一覧を保持するビューを作成*/
+/*childrenビューを削除*/
+DROP VIEW IF EXISTS
+	children
+;
 
+/*子供の一覧を保持するビューを作成*/
 CREATE VIEW
-	Children(child)
+	children(child)
 AS
-	SELECT
-		child_1
-	FROM
-		personnels
+		SELECT
+			child_1
+		FROM
+			personnels
 	UNION
-	SELECT
-		child_2
-	FROM
-		personnels
+		SELECT
+			child_2
+		FROM
+			personnels
 	UNION
-	SELECT
-		child_3
-	FROM
-		personnels
+		SELECT
+			child_3
+		FROM
+			personnels
 ;
 
 /*社員ごとの子供の人数を表示*/
 
 SELECT
 	EMP.employee,
-	COUNT(Children.child)
+	COUNT(children.child)
 FROM
 	personnels EMP
 LEFT OUTER JOIN
-	Children
+	children
 ON
-	Children.child IN (EMP.child_1, EMP.child_2, EMP.child_3)
+	children.child
+IN
+	(
+		EMP.child_1, 
+		EMP.child_2,
+		EMP.child_3
+	)
 GROUP BY
 	employee
 ORDER BY
-	COUNT(Children.child) DESC
+	COUNT(children.child) DESC
 ;

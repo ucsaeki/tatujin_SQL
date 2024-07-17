@@ -3,7 +3,6 @@ EX10-② シーケンスを求める
 
 
 /*パラメータに空席の連続する数を設定*/
-
 SET
 	/*3は連続した座席の数を表す*/
 	@head_cnt = 3
@@ -28,12 +27,14 @@ WHERE
 AND
 	S3.seat BETWEEN S1.seat AND S2.seat
 GROUP BY
-	S1.seat
+	S1.seat,
+	S2.seat
 HAVING
-	COUNT(S1.seat) = SUM(
+	COUNT(*) = SUM(
 		CASE
 			/*1は条件に合致した場合を表すために使用*/
 			WHEN S3.status = '空' THEN 1
+			/*0は条件に合致しないことを表すために使用*/
 			ELSE 0
 		END
 	)
@@ -43,7 +44,6 @@ HAVING
 〇行に折り返しがある場合
 
 /*列ごとに、指定した数だけ空席が連続する座席を表示する*/
-
 SELECT
 	S1.seat AS start_seat,
 	'～',
@@ -62,8 +62,13 @@ GROUP BY
 HAVING
 	COUNT(*) = SUM(
 		CASE
-			/*1は条件に合致した場合を表すために使用*/
-			WHEN S3.status = '空' AND S3.line_id = S1.line_id THEN 1
+			WHEN
+				S3.status = '空'
+			AND
+				/*1は条件に合致した場合を表すために使用*/
+				S2.line_id = S1.line_id
+			THEN 1
+			/*0は条件に合致しないことを表すために使用*/
 			ELSE 0
 		END
 	)

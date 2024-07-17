@@ -4,36 +4,48 @@ EX8-① 結合が先か、集約が先か？
 
 SELECT
 	MASTER.age_class,
-	MASTER.sex_cd,
+	MASTER.sex_code,
 	SUM(
 		CASE
-			WHEN pref_name IN ('青森','秋田')THEN population
-			ELSE NULL
+			WHEN
+				prefecture_name
+			IN
+				('青森','秋田')
+			THEN
+				population
+			ELSE
+				NULL
 		END
-		) AS pop_tohoku,
+	) AS population_tohoku,
 	SUM(
 		CASE
-			WHEN pref_name IN ('東京','千葉')THEN population
-			ELSE NULL
+			WHEN
+				prefecture_name
+			IN
+				('東京','千葉')
+			THEN
+				population
+			ELSE
+				NULL
 		END
-		) AS pop_kanto
+	) AS population_kanto
 FROM
 	(
 		SELECT
 			age_class,
-			sex_cd
+			sex_code
 		FROM
 			ages
 		CROSS JOIN
-			tbl_sexes
+			sexes
 	) AS MASTER
 LEFT OUTER JOIN
-	tbl_pops AS t
+	populations AS p
 ON
-	t.age_class = MASTER.age_class
+	p.age_class = MASTER.age_class
 AND
-	t.sex_cd = MASTER.sex_cd
+	p.sex_code = MASTER.sex_code
 GROUP BY
 	age_class,
-	sex_cd DESC
+	sex_code DESC
 ;
